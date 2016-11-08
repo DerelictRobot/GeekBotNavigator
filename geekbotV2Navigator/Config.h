@@ -50,7 +50,7 @@ const uint8_t LCD_STOP_PIN = 8;	//Digital Pin 8
 // LineFollowing Color Designation. 0 = White line on dark colored floor, 1 = Black line on light colored floor.
 const bool LINE_COLOR =  1;
 
-//Robot Driving Speed Parameters
+//Robot Auto-Driving Speed Parameters
 const unsigned int DRIVE_SPEED 		= 50;	//Forward/Reverse Driving Speed Value, 0-100
 const unsigned int TURN_SPEED  		= 50;	//Turning while Driving Speed, 0-100
 const unsigned int ROTATE_SPEED  	= 50;	//Turning in place (rotating) Speed, 0-100
@@ -67,6 +67,13 @@ const unsigned int ROTATE_SPEED  	= 50;	//Turning in place (rotating) Speed, 0-1
 const int SERVO_STOP    = 1500; //servo pulse in microseconds for stopped servo
 const int CCW_MIN_SPEED = 1580; //Speed constants from RGS-4C No Load Test Data
 const int CW_MIN_SPEED  = 1400;
+
+const int SPEED_MIN = 10;
+const int SPEED_MAX = 30;
+const int DRIVE_TURN_SPEED_MIN = 50;
+const int DRIVE_TURN_SPEED_MAX = 90;
+const int ROTATE_SPEED_MIN = 10;
+const int ROTATE_SPEED_MAX = 40;
 
 //Intersection constants, Applied in Navigation.cpp/h
 const int BLIND_DRIVE_TIME = 700; //milliseconds to drive forward at intersection

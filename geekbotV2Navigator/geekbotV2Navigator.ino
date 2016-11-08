@@ -59,13 +59,19 @@ void setup()
 
 void loop()
 {
-  myGeekBot.timedRotate(10, 10); // time in mS, rotation speed CCW -100 to CW +100
-  myGeekBot.sound(soundDown);
-  delay(3000);
-  myGeekBot.lineFollow(0); // 0 = follow until intersection, 1-10,000 = time in mS to follow line
-  delay(1000);
-  myGeekBot.timedDrive(5000, 80); // time in mS, Speed -100 through +100
+  // myGeekBot.timedRotate(10, 10); // time in mS, rotation speed CCW -100 to CW +100
+  // myGeekBot.sound(soundDown);
+  // delay(3000);
+  // myGeekBot.lineFollow(0); // 0 = follow until intersection, 1-10,000 = time in mS to follow line
+  // delay(1000);
+  myGeekBot.timedDrive(5000, 0); // time in mS, Speed -100 through +100
   myGeekBot.sound(soundUp);
-  delay(5000);
-
+  delay(1000);
+  myGeekBot.timedDrive(5000, 50); // time in mS, Speed -100 through +100
+  myGeekBot.sound(soundDown);
+  delay(1000);
+  myGeekBot.timedDrive(5000, 100); // time in mS, Speed -100 through +100
+  myGeekBot.sound(soundUp);
+  delay(1000);
+  myGeekBot.timedRotate(2000, 50);
 }

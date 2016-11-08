@@ -17,11 +17,15 @@ void updateDriveTrim();
 void motorsInit( int leftPin, int rightPin );
 void motorsSetSpeed();
 void motorsUpdateForwardSpeed();
+void motorsUpdateForwardSpeed(int speed);
 void motorsStop();
 void motorsForward();
+void motorsForward(int norm_speed);
 void motorsTurnLeft();
 void motorsTurnRight();
 void motorsRotateLeft();
+void motorsRotateLeft(int norm_speed);
 void motorsRotateRight();
+void motorsRotateRight(int norm_speed);
 
 #endif

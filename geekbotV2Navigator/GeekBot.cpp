@@ -40,12 +40,30 @@ bool GeekBot::lineFollow(unsigned int time)
 
 void GeekBot::timedDrive(unsigned int time, int speed)	// time in mS, Speed -100 through +100
 {
-
+	motorsForward(speed);
+	delay(time);
+	motorsStop();
 }
 
 void GeekBot::timedRotate(unsigned int time, int speed)	// time in mS, rotation speed CCW -100 to CW +100
 {
-
+	if (speed > 0)
+	{
+		motorsRotateRight(speed);
+		delay(time);
+		motorsStop();
+	}
+	if (speed < 0)
+	{
+		motorsRotateLeft(speed);
+		delay(time);
+		motorsStop();
+	}
+	if (speed == 0)
+	{
+		delay(time);
+		motorsStop();
+	}
 }
 
 bool GeekBot::lineFind(int rotation)	//
