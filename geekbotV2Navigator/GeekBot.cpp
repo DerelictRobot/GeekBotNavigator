@@ -20,6 +20,7 @@
 #include <PiezoEffects.h>
 PiezoEffects mySounds( BUZZER_PIN );
 
+
 void GeekBot::init()
 {
 	pinMode(LED_LEFT_PIN, OUTPUT);
@@ -32,10 +33,20 @@ void GeekBot::init()
 	LineSensorArrayInit();
 }
 
-bool GeekBot::lineFollow(unsigned int time)
-{
 
-	return 0;
+void GeekBot::lineFollow(unsigned int time, int state)
+{
+	Serial.println("Starting lineFollow Function");
+	do
+	{
+		lineFollowCommand();
+		Serial.println("Updating!");
+	}
+	while (lineFollowCommand() == 0);
+
+	Serial.println("intersectionDetected");
+	intersectionDetected(state);
+
 }
 
 void GeekBot::timedDrive(unsigned int time, int speed)	// time in mS, Speed -100 through +100

@@ -31,5 +31,6 @@ void intersectionRight();
 void intersectionLeft();
 void intersectionUTurn();
 void intersectionDetected();
+void intersectionDetected(int userIntersectionCommand);
 
 #endif

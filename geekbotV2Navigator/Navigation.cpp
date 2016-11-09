@@ -369,3 +369,34 @@ void intersectionDetected()
     currentNavigationIntersection = -1;
   }
 }
+
+void intersectionDetected(int userIntersectionCommand)
+{
+  motorsStop();
+  switch ( userIntersectionCommand )
+  {
+  case NAV_FWD:
+    navigationSounds->play( soundWhistle );
+    intersectionForward();
+    break;
+  case NAV_UTURN:
+    navigationSounds->play( soundWhistle );
+    intersectionUTurn();
+    break;
+  case NAV_LEFT:
+    navigationSounds->play( soundWhistle );
+    intersectionLeft();
+    break;
+  case NAV_RIGHT:
+    navigationSounds->play( soundWhistle );
+    intersectionRight();
+    break;
+  case NAV_STOP:
+    navigationSounds->play( soundLaugh );
+  //no break, default desired
+  default:
+    motorsStop();
+    navigationSounds->play( soundBeeps );
+
+  }
+}

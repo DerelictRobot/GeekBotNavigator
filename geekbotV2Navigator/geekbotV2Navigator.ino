@@ -41,7 +41,8 @@
 #include "GeekBot.h"
 /* Robot Config Parameters */
 #include "Config.h"
-
+#include "LineFollower.h"
+#include "Navigation.h"
 
 // Create GeekBot object, named myGeekBot
 GeekBot myGeekBot;
@@ -64,14 +65,32 @@ void loop()
   // delay(3000);
   // myGeekBot.lineFollow(0); // 0 = follow until intersection, 1-10,000 = time in mS to follow line
   // delay(1000);
-  myGeekBot.timedDrive(5000, 0); // time in mS, Speed -100 through +100
-  myGeekBot.sound(soundUp);
-  delay(1000);
-  myGeekBot.timedDrive(5000, 50); // time in mS, Speed -100 through +100
-  myGeekBot.sound(soundDown);
-  delay(1000);
-  myGeekBot.timedDrive(5000, 100); // time in mS, Speed -100 through +100
-  myGeekBot.sound(soundUp);
-  delay(1000);
-  myGeekBot.timedRotate(2000, 50);
+  //myGeekBot.lineFollow(0, NAV_FWD);
+  myGeekBot.lineFollow(0, NAV_LEFT);
+  myGeekBot.lineFollow(0, NAV_RIGHT);
+  myGeekBot.lineFollow(0, NAV_LEFT);
+  myGeekBot.lineFollow(0, NAV_LEFT);
+  myGeekBot.lineFollow(0, NAV_RIGHT);
+  delay(5000);
+
+
+  /*
+  enum NavCmds
+    NAV_FWD = 1,
+    NAV_UTURN,
+    NAV_RIGHT,
+    NAV_LEFT,
+    NAV_STOP
+  */
+
+  // myGeekBot.timedDrive(5000, 0); // time in mS, Speed -100 through +100
+  // myGeekBot.sound(soundUp);
+  // delay(1000);
+  // myGeekBot.timedDrive(5000, 50); // time in mS, Speed -100 through +100
+  // myGeekBot.sound(soundDown);
+  // delay(1000);
+  // myGeekBot.timedDrive(5000, 100); // time in mS, Speed -100 through +100
+  // myGeekBot.sound(soundUp);
+  // delay(1000);
+  // myGeekBot.timedRotate(2000, 50);
 }
