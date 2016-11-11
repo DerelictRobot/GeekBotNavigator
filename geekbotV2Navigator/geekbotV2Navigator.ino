@@ -44,8 +44,8 @@
 #include "LineFollower.h"
 #include "Navigation.h"
 
-// Create GeekBot object, named myGeekBot
-GeekBot myGeekBot;
+
+GeekBot myGeekBot; // Create GeekBot object, named myGeekBot
 
 void setup()
 {
@@ -60,37 +60,37 @@ void setup()
 
 void loop()
 {
-  // myGeekBot.timedRotate(10, 10); // time in mS, rotation speed CCW -100 to CW +100
-  // myGeekBot.sound(soundDown);
-  // delay(3000);
-  // myGeekBot.lineFollow(0); // 0 = follow until intersection, 1-10,000 = time in mS to follow line
-  // delay(1000);
-  //myGeekBot.lineFollow(0, NAV_FWD);
-  myGeekBot.lineFollow(0, NAV_LEFT);
-  myGeekBot.lineFollow(0, NAV_RIGHT);
-  myGeekBot.lineFollow(0, NAV_LEFT);
-  myGeekBot.lineFollow(0, NAV_LEFT);
-  myGeekBot.lineFollow(0, NAV_RIGHT);
-  delay(5000);
-
-
-  /*
-  enum NavCmds
-    NAV_FWD = 1,
-    NAV_UTURN,
-    NAV_RIGHT,
-    NAV_LEFT,
-    NAV_STOP
-  */
-
-  // myGeekBot.timedDrive(5000, 0); // time in mS, Speed -100 through +100
-  // myGeekBot.sound(soundUp);
-  // delay(1000);
-  // myGeekBot.timedDrive(5000, 50); // time in mS, Speed -100 through +100
-  // myGeekBot.sound(soundDown);
-  // delay(1000);
-  // myGeekBot.timedDrive(5000, 100); // time in mS, Speed -100 through +100
-  // myGeekBot.sound(soundUp);
-  // delay(1000);
-  // myGeekBot.timedRotate(2000, 50);
+  myGeekBot.lineFollow(NAV_STOP);
+  delay(2000);
+  myGeekBot.timedDrive(2000, 50);
+  delay(2000);
+  myGeekBot.timedRotate(2000, 50);
+  customFunction();
 }
+
+
+void customFunction()
+{
+
+  myGeekBot.lineFollow(NAV_STOP); //Follow Line until Intersection, state = NAV_CMD for next action.
+  delay(1000); //pause delay in mS
+  myGeekBot.timedRotate(2000, 50); // time in mS, rotation speed CCW -100 to CW +100
+  delay(2000); //pause delay in mS
+  myGeekBot.timedDrive(3000, 50); //time in mS, travel speed 0-100
+  delay(3000); //pause delay in mS
+  myGeekBot.recoverLine(1); //Follow Line until Intersection, state = NAV_CMD for next action.
+  myGeekBot.lineFollow(NAV_LEFT); //Follow Line until Intersection, state = NAV_CMD for next action.
+  myGeekBot.lineFollow(NAV_FWD); //Follow Line until Intersection, state = NAV_CMD for next action.
+  myGeekBot.lineFollow(NAV_LEFT); //Follow Line until Intersection, state = NAV_CMD for next action.
+  myGeekBot.lineFollow(NAV_UTURN); //Follow Line until Intersection, state = NAV_CMD for next action.
+  myGeekBot.lineFollow(NAV_RIGHT); //Follow Line until Intersection, state = NAV_CMD for next action.
+}
+
+/*
+   NavCmds
+   NAV_FWD,
+   NAV_UTURN,
+   NAV_RIGHT,
+   NAV_LEFT,
+   NAV_STOP
+ */

@@ -34,7 +34,7 @@ void GeekBot::init()
 }
 
 
-void GeekBot::lineFollow(unsigned int time, int state)
+void GeekBot::lineFollow(int state)	//Follow Line until Intersection, state = NAV_CMD for next action.
 {
 	Serial.println("Starting lineFollow Function");
 	do
@@ -49,7 +49,7 @@ void GeekBot::lineFollow(unsigned int time, int state)
 
 }
 
-void GeekBot::timedDrive(unsigned int time, int speed)	// time in mS, Speed -100 through +100
+void GeekBot::timedDrive(unsigned int time, int speed)	// time in mS, Speed 0 to 100
 {
 	motorsForward(speed);
 	delay(time);
@@ -77,13 +77,20 @@ void GeekBot::timedRotate(unsigned int time, int speed)	// time in mS, rotation 
 	}
 }
 
-bool GeekBot::lineFind(int rotation)	//
+bool GeekBot::recoverLine(int rotation)	//Rotate until line recovered, -1 = CCW, 1 = CW
 {
-
+	if (rotation > 0)
+	{
+		recoverLineRight();
+	}
+	if (rotation < 0)
+	{
+		recoverLineLeft();
+	}
 	return 0;
 }
 
-void GeekBot::sound(int sound)
+void GeekBot::sound(int sound)	// play sound from Piezo library
 {
 	mySounds.play( sound );
 }
