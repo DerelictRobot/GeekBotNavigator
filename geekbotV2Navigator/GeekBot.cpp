@@ -39,7 +39,6 @@ void GeekBot::lineFollow(int state)	//Follow Line until Intersection, state = NA
 	Serial.println("Starting lineFollow Function");
 	do
 	{
-		lineFollowCommand();
 		Serial.println("Updating!");
 	}
 	while (lineFollowCommand() == 0);
@@ -77,7 +76,7 @@ void GeekBot::timedRotate(unsigned int time, int speed)	// time in mS, rotation 
 	}
 }
 
-bool GeekBot::recoverLine(int rotation)	//Rotate until line recovered, -1 = CCW, 1 = CW
+void GeekBot::recoverLine(int rotation)	//Rotate until line recovered, -1 = CCW, 1 = CW
 {
 	if (rotation > 0)
 	{
@@ -87,7 +86,6 @@ bool GeekBot::recoverLine(int rotation)	//Rotate until line recovered, -1 = CCW,
 	{
 		recoverLineLeft();
 	}
-	return 0;
 }
 
 void GeekBot::sound(int sound)	// play sound from Piezo library

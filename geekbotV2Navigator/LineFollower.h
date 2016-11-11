@@ -14,5 +14,7 @@
 void lineFollowerInit( PiezoEffects * mySounds );
 bool lineFollowerUpdate();
 bool lineFollowCommand();
+void recoverLineLeft();
+void recoverLineRight();
 
 #endif

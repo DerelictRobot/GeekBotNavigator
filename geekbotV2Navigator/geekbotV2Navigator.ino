@@ -61,6 +61,7 @@ void setup()
 void loop()
 {
   myGeekBot.lineFollow(NAV_STOP);
+  myGeekBot.sound(soundDown);
   delay(2000);
   myGeekBot.timedDrive(2000, 50);
   delay(2000);
@@ -71,19 +72,18 @@ void loop()
 
 void customFunction()
 {
-
-  myGeekBot.lineFollow(NAV_STOP); //Follow Line until Intersection, state = NAV_CMD for next action.
-  delay(1000); //pause delay in mS
   myGeekBot.timedRotate(2000, 50); // time in mS, rotation speed CCW -100 to CW +100
   delay(2000); //pause delay in mS
   myGeekBot.timedDrive(3000, 50); //time in mS, travel speed 0-100
   delay(3000); //pause delay in mS
   myGeekBot.recoverLine(1); //Follow Line until Intersection, state = NAV_CMD for next action.
+  myGeekBot.sound(soundWhistle);
   myGeekBot.lineFollow(NAV_LEFT); //Follow Line until Intersection, state = NAV_CMD for next action.
   myGeekBot.lineFollow(NAV_FWD); //Follow Line until Intersection, state = NAV_CMD for next action.
   myGeekBot.lineFollow(NAV_LEFT); //Follow Line until Intersection, state = NAV_CMD for next action.
   myGeekBot.lineFollow(NAV_UTURN); //Follow Line until Intersection, state = NAV_CMD for next action.
   myGeekBot.lineFollow(NAV_RIGHT); //Follow Line until Intersection, state = NAV_CMD for next action.
+  myGeekBot.lineFollow(NAV_STOP); //Follow Line until Intersection, state = NAV_CMD for next action.
 }
 
 /*
